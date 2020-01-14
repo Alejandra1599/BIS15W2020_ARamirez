@@ -1,0 +1,80 @@
+---
+title: "Lab 1 Homework"
+author: "Alejandra Ramirez"
+date: "Winter 2020"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+1.) 
+```{r}
+5-3*2
+8/2**2
+```
+
+2.)
+```{r}
+(5-3)*2
+```
+```{r}
+x <- 8/2 
+x**2
+```
+
+3.)
+```{r}
+pi <- 3.14159265359
+```
+
+4.) Numeric
+```{r}
+is.integer(pi)
+```
+```{r}
+is.numeric(pi)
+```
+
+5.)
+```{r}
+Days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+
+
+
+names(Blackjack) <- Days
+names(Roulette) <- Days
+```
+
+```{r}
+mean(Blackjack)
+```
+  C.) I need to not include NA
+```{r}
+mean(Blackjack, na.rm = TRUE)
+```
+```{r}
+mean(Roulette, na.rm = TRUE)
+```
+
+```{r}
+Total_week <- c(Blackjack+Roulette)
+
+```
+E.) Friday is lucky but Thursday is unlucky
+
+F.) 
+```{r}
+is.logical(Meanblackjack > Meanroulette)
+```
+
+
+
+
+
+
+
+
+
+
+
