@@ -15,24 +15,49 @@ Answer the following questions and complete the exercises in RMarkdown. Please e
   + 5 - 3 * 2  
   + 8 / 2 ** 2  
   
-```{r}
+
+```r
 5-3*2
+```
+
+```
+## [1] -1
+```
+
+```r
 8/2**2
+```
+
+```
+## [1] 2
 ```
   
   
 2. Did any of the results in #1 surprise you? Write two programs that calculate each expression such that the result for the first example is 4 and the second example is 16.  
 
-```{r}
+
+```r
 (5-3)*2
+```
+
+```
+## [1] 4
+```
+
+```r
 x <- 8/2 
 x**2
+```
+
+```
+## [1] 16
 ```
 
 
 3. Make a new object `pi` as 3.14159265359.  
 
-```{r}
+
+```r
 pi <- 3.14159265359
 ```
 
@@ -41,58 +66,88 @@ pi <- 3.14159265359
 
 Numeric
 
-```{r}
+
+```r
 is.integer(pi)
+```
+
+```
+## [1] FALSE
+```
+
+```r
 is.numeric(pi)
+```
+
+```
+## [1] TRUE
 ```
 
 
 5. You have decided to use your new analytical powers in R to become a professional gambler. Here are your winnings and losses this week. Note that you don't gamble on the weekends!  
-```{r}
+
+```r
 blackjack <- c(140, -20, 70, -120, 240, NA, NA)
 roulette <- c(60, 50, 120, -300, 10, NA, NA)
 ```
 
 a. Build a new vector called `days` for the days of the week. 
-```{r}
+
+```r
 days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 ```
 
 
 We will use `days` to name the elements in the poker and roulette vectors.
-```{r}
+
+```r
 names(blackjack) <- days
 names(roulette) <- days
 ```
 
 b. Calculate how much you won or lost in blackjack over the week. 
 
-```{r}
-mean(blackjack)
 
+```r
+mean(blackjack)
+```
+
+```
+## [1] NA
 ```
 
 
 
 c. What is your interpretation of this result? What do you need to do to address the problem? Recalculate how much you won or lost in blackjack over the week.  
 
-```{r}
+
+```r
 mean(blackjack, na.rm = TRUE)
+```
+
+```
+## [1] 62
 ```
 
 
 
 d. Calculate how much you won or lost in roulette over the week.
 
-```{r}
+
+```r
 mean(roulette, na.rm = TRUE)
+```
+
+```
+## [1] -12
 ```
 
 
 
 e. Build a `total_week` vector to show how much you lost or won on each day over the week. Which days seem lucky or unlucky for you?
 
-```{r}
+
+```r
 Total_week <- c(blackjack+roulette)
 ```
 
@@ -100,11 +155,15 @@ Friday is lucky but thursday is unlucky
 
 f. Should you stick to blackjack or roulette? Write a program that verifies this below.  
 
-```{r}
+
+```r
 Meanblackjack <- 62
 Meanroulette <- -12
 is.logical(Meanblackjack > Meanroulette)
+```
 
+```
+## [1] TRUE
 ```
 
 
