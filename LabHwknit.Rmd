@@ -1,15 +1,18 @@
 ---
-title: "Lab 2 Homework"
-author: "Joel Ledford"
-date: "Winter 2020"
-output:
-  html_document:
-    theme: spacelab
-    toc: no
+title: "Lab2HwR"
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
-## Instructions
-Answer the following questions and complete the exercises in RMarkdown. Please embed all of your code and push your final work to our [GitHub repository](https://github.com/FRS417-DataScienceBiologists). I will randomly select a few examples of student work at the start of each session to use as examples so be sure that your code is working to the best of your ability.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
 
 ## Load the tidyverse
 ```{r}
@@ -124,9 +127,10 @@ mean(small_sleep)
 11. Which animals are the sleepiest? Which sleep least 18 hours per day?  
 
 ```{r}
-
+sleepiest <- filter(sleep, sleep_total==19.90)
+sleepiest
 ```
-
-
-
-## Push your final code to GitHub
+```{r}
+Sleepy <- filter(sleep, sleep_total>=18)
+Sleepy
+```

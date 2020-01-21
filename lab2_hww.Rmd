@@ -124,7 +124,12 @@ mean(small_sleep)
 11. Which animals are the sleepiest? Which sleep least 18 hours per day?  
 
 ```{r}
-
+sleepiest <- filter(sleep, sleep_total==19.90)
+sleepiest
+```
+```{r}
+Sleepy <- filter(sleep, sleep_total>=18)
+Sleepy
 ```
 
 
