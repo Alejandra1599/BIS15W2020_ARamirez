@@ -5,16 +5,6 @@ output:
     keep_md: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r}
-install.packages("stringi")
-install.packages("stringr")
-install.packages("tidyverse")
-```
-
 
 ## R Markdown
 
@@ -51,7 +41,7 @@ Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1
 1. Load the data into a new object called `homerange`.  
 
 ```{r}
-homerange <- readr::read_csv("Tamburelloetal_HomerangeDatabase.csv")
+homerange <- readr::read_csv("data/Tamburelloetal_HomerangeDatabase.csv")
 ```
 
 
@@ -114,7 +104,7 @@ family <- homerange$family
 genus <- homerange$genus
 species <- homerange$genus
 
-deer <- data.frame(mean_mass, log10_mass, family, genus, species )%>%
+deer <- data.frame(mean_mass, log10_mass, family, genus, species)%>%
   filter(family == "cervidae")%>%
   arrange(desc(log10_mass))
 deer
