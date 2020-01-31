@@ -1,14 +1,4 @@
 ---
-title: "Lab 3 HW"
-output: 
-  html_document: 
-    keep_md: yes
----
-
-
-## R Markdown
-
----
 title: "Lab 3 Homework"
 author: "Alejandra Ramirez"
 date: "Winter 2020"
@@ -27,7 +17,6 @@ Answer the following questions and complete the exercises in RMarkdown. Please e
 
 ## Load the tidyverse
 ```{r}
-
 library(tidyverse)
 ```
 
@@ -39,21 +28,17 @@ Reference: Tamburello N, Cote IM, Dulvy NK (2015) Energy and the scaling of anim
 Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1  
 
 1. Load the data into a new object called `homerange`.  
-
 ```{r}
 homerange <- readr::read_csv("data/Tamburelloetal_HomerangeDatabase.csv")
 ```
 
 
 2. Use `spec()` to see the full details of the columns.  
-
 ```{r}
 spec(homerange)
 ```
 
-
 3. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks. 
-
 ```{r}
 dim(homerange)
 ```
@@ -63,40 +48,32 @@ names(homerange)
 ```
 
 ```{r}
-variable.names(homerange)
+summary(homerange)
+```
+
+```{r}
+glimpse(homerange) #shows the classes of each variable
 ```
 
 ```{r}
 summary(homerange)
 ```
 
-
-
-
 4. Are there NA's in your data? Show the code that you would use to verify this, please.  
-
 ```{r}
 anyNA(homerange)
 ```
 
-
 5. Change the class of the variables `taxon` and `order` to factors and display their levels.  
-
 ```{r}
-t<- class(homerange$taxon)
-f<- class(homerange$order)
-
-tf<- as.factor(t) 
-ff<- as.factor(f)
-
-levels(tf)
-levels(ff)
-
+homerange$taxon <- as.factor(homerange$taxon)
+homerange$order <- as.factor(homerange$order)
+levels(homerange$taxon)
+levels(homerange$order)
 ```
 
-
 6. Make a new dataframe `deer` that is limited to the mean mass, log10 mass, family, genus, and species of deer in the database. The family for deer is cervidae. Arrange the data in descending order by log10 mass. Which is the largest deer?  
-
+## largest deer is _Alces alces_, Moose.   
 ```{r}
 mean_mass <-homerange$mean.mass.g
 log10_mass <-homerange$log10.mass
@@ -110,24 +87,26 @@ deer <- data.frame(mean_mass, log10_mass, family, genus, species)%>%
 deer
 ```
 
-##largest deer is alces
+## Don't forget that you can use `select()` and `filter()`; you don't need to make a new data frame.
+```{r}
+deer <- 
+  homerange %>% 
+  filter(family=="cervidae") %>% 
+  select(family, genus, species, mean.mass.g, log10.mass) %>% 
+  arrange(desc(log10.mass))
+deer
+```
 
 7. As measured by the data, which snake species has the smallest homerange? Show all of your work, please. Look this species up online and tell me about it!  
-
+## _Bitis schneideri_ has the smallest homerange and is the world's smallest viper.  
 ```{r}
-
-
 homerange %>%
   select(mean.hra.m2, species, taxon) %>%
   filter(taxon=="snakes")%>%
   arrange(mean.hra.m2)
-  
-
 ```
-## schneideri has the smallest homerange and is the world's smallest viper
 
 8. You suspect that homerange and mass are correlated in birds. We need a ratio that facilitates exploration of this prediction. First, build a new dataframe called `hra_ratio` that is limited to genus, species, mean.mass.g, log10.mass, log10.hra. Arrange it in ascending order by mean mass in grams.  
-
 ```{r}
 hra_ratio <-
   homerange%>%
@@ -137,9 +116,7 @@ hra_ratio <-
 hra_ratio
 ```
 
-
 9. Replace the existing `hra_ratio` dataframe with a new dataframe that adds a column calculating the ratio of log 10 hra to log 10 mass. Call it `hra.mass.ratio`. Arrange it in descending order by mean mass in grams.
-
 ```{r}
 hra_ratio <-
   hra_ratio%>%
@@ -148,29 +125,20 @@ hra_ratio <-
 hra_ratio
 ```
 
-
-
-10. What is the lowest mass for birds with a `hra.mass.ratio` greater than or equal to 4.0?
-
+10. What is the lowest mass for birds with a `hra.mass.ratio` greater than or equal to 4.0?  
+##lowest mass for birds is 5.15g
 ```{r}
 hra_ratio%>%
   filter(hra.mass.ratio >= 4)%>%
   arrange(mean.mass.g)
 ```
 
-##lowest mass for birds is 5.15g
-
-11. Do a search online; what is the common name of the bird from #8 above? Place a link in your markdown file that takes us to a webpage with information on its biology.  
-
+11. Do a search online; what is the common name of the bird from #10 above? Place a link in your markdown file that takes us to a webpage with information on its biology.  
 
 [linked phrase] (https://en.wikipedia.org/wiki/Kinglet)
 
 
 12. What is the `hra.mass.ratio` for an ostrich? Show your work, please.
-
-
-
-
 ```{r}
 Ostrich<-
   homerange %>%
@@ -178,10 +146,7 @@ Ostrich<-
   mutate(hra.ostrich = log10.hra/log10.mass) %>%
   select(hra.ostrich)
 Ostrich
-
-
 ```
-
 
 ## Push your final code to GitHub!
 Please be sure that you have check the `keep md` file in the knit preferences.  
