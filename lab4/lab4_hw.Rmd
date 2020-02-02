@@ -1,7 +1,7 @@
 ---
 title: "Lab 4 Homework"
-author: "Please Add Your Name Here"
-date: "Please Add the Date Here"
+author: "Alejandra Ramirez"
+date: "2/1/20"
 output:
   html_document:
     theme: spacelab
@@ -11,6 +11,13 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+```{r}
+install.packages("stringi")
+install.packages("stringr")
+install.packages("tidyverse")
+```
+
 
 ## Instructions
 Answer the following questions and complete the exercises in RMarkdown. Please embed all of your code and push your final work to your repository. Your final lab report should be organized, clean, and run free from errors. Remember, you must remove any `#` for included code chunks to run.  
@@ -24,15 +31,35 @@ For this assignment we are going to work with a large dataset from the [United N
 
 1. Load the data `FAO_1950to2012_111914.csv` as a new object titled `fisheries`.
 
+```{r}
+fisheries <- readr::read_csv("data/FAO_1950to2012_111914.csv")
+```
+
+
 
 2. What are the names of the columns? Do you see any potential problems with the column names?
 
+```{r}
+names(fisheries)
+```
+####yes, years should be part of the data
 
 3. What is the structure of the data? Show the classes of each variable.
+
+```{r}
+str(fisheries)
+glimpse(fisheries)
+```
+
 
 
 4. Think about the classes. Will any present problems? Make any changes you think are necessary below.
 
+####Some are under double
+```{r}
+fisheries$
+
+```
 
 5. How many countries are represented in the data? Provide a count.
 
@@ -51,6 +78,14 @@ For this assignment we are going to work with a large dataset from the [United N
 + unit
 
 8. Are these data tidy? Why or why not, and, how do you know? Use the appropriate pivot function to tidy the data. Remove the NA's. Put the tidy data frame into a new object `fisheries_tidy`.  
+
+```{r}
+fisheries <-
+  fisheries%>%
+  pivot_longer(1950:2012 , names_to = "years", values_to = "numbers", values_drop_na = TRUE)
+
+fisheries
+```
 
 
 9. Refocus the data only to include country, ISSCAAP_spgroupname, ASFIS_spcode, ASFIS_sciname, year, and catch.
