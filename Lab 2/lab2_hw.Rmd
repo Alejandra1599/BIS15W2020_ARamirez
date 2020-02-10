@@ -1,11 +1,12 @@
 ---
 title: "Lab 2 Homework"
-author: "Joel Ledford"
+author: "Alejandra Ramirez"
 date: "Winter 2020"
 output:
   html_document:
+    keep_md: yes
     theme: spacelab
-    toc: no
+  pdf_document: default
 ---
 
 ## Instructions
