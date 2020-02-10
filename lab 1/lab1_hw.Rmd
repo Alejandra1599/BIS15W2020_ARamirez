@@ -25,8 +25,13 @@ Answer the following questions and complete the exercises in RMarkdown. Please e
 
 ```{r}
 (5-3)*2
+```
+
+```{r}
 x <- 8/2 
 x**2
+#a simpler option
+#(8/2)**2
 ```
 
 
@@ -44,6 +49,8 @@ Numeric
 ```{r}
 is.integer(pi)
 is.numeric(pi)
+#a bit more direct
+#class(pi)
 ```
 
 
@@ -74,10 +81,14 @@ mean(blackjack)
 
 
 
-c. What is your interpretation of this result? What do you need to do to address the problem? Recalculate how much you won or lost in blackjack over the week.  
+c. What is your interpretation of this result? What do you need to do to address the problem? Recalculate how much you won or lost in blackjack over the week. 
+#remember to answer the questions, the results indicate that there are NAs in the data 
 
 ```{r}
 mean(blackjack, na.rm = TRUE)
+#the question actually wants the overall winnings for the week so-
+#total_blackjack <- sum(blackjack, na.rm=T)
+#total_blackjack
 ```
 
 
@@ -86,6 +97,9 @@ d. Calculate how much you won or lost in roulette over the week.
 
 ```{r}
 mean(roulette, na.rm = TRUE)
+#same here
+#total_roulette <- sum(roulette, na.rm=T)
+#total_roulette
 ```
 
 
@@ -94,6 +108,9 @@ e. Build a `total_week` vector to show how much you lost or won on each day over
 
 ```{r}
 Total_week <- c(blackjack+roulette)
+#again, a simpler option, also go ahead and print your output so you can check your results
+#Total_week <- blackjack+roulette
+#Total_week
 ```
 
 Friday is lucky but thursday is unlucky
@@ -104,6 +121,11 @@ f. Should you stick to blackjack or roulette? Write a program that verifies this
 Meanblackjack <- 62
 Meanroulette <- -12
 is.logical(Meanblackjack > Meanroulette)
+
+#and if you use the code suggestions above your code could look something like this-
+#is.logical(total_blackjack > total_roulette)
+#or even just
+#total_blackjack > total_roulette
 
 ```
 
