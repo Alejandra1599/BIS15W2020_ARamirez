@@ -1,11 +1,12 @@
 ---
 title: "Lab 2 Homework"
-author: "Joel Ledford"
+author: "Alejandra Ramirez"
 date: "Winter 2020"
 output:
   html_document:
+    keep_md: yes
     theme: spacelab
-    toc: no
+  pdf_document: default
 ---
 
 ## Instructions
@@ -90,6 +91,7 @@ large
 ```
 
 ```{r}
+#You don't need to make these objects, we can do the calculations in the objusts "large" and "small"
 S <- small$bodywt
 L <- large$bodywt
 ```
@@ -102,6 +104,12 @@ mean(S)
 mean(L)
 ```
 
+```{r}
+#following the above comment-
+#mean(small$bodywt)
+#mean(large$bodywt)
+```
+
 
 
 9. Let's try to figure out if large mammals sleep, on average, longer than small mammals. What is the average sleep duration for large mammals as we have defined them?
@@ -109,6 +117,8 @@ mean(L)
 ```{r}
 Large_sleep <- large$sleep_total
 mean(Large_sleep)
+#again, we can do this in the object we already made
+#mean(large$sleep_total)
 ```
 
 
@@ -117,6 +127,8 @@ mean(Large_sleep)
 ```{r}
 small_sleep <- small$sleep_total
 mean(small_sleep)
+#and here as well
+#mean(small$sleep_total)
 ```
 
 
@@ -124,7 +136,9 @@ mean(small_sleep)
 11. Which animals are the sleepiest? Which sleep least 18 hours per day?  
 
 ```{r}
-
+#Oh no, it's blank! Here's a suggestion for how you could have done it-
+#sleepy <- subset(sleep, sleep_total>=18)
+#sleepy
 ```
 
 

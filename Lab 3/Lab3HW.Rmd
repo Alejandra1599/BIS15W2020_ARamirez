@@ -47,9 +47,6 @@ dim(homerange)
 names(homerange)
 ```
 
-```{r}
-summary(homerange)
-```
 
 ```{r}
 glimpse(homerange) #shows the classes of each variable
@@ -66,9 +63,13 @@ anyNA(homerange)
 
 5. Change the class of the variables `taxon` and `order` to factors and display their levels.  
 ```{r}
+#just going to tidy this up, there's nothing actually wrong with it
 homerange$taxon <- as.factor(homerange$taxon)
-homerange$order <- as.factor(homerange$order)
 levels(homerange$taxon)
+```
+
+```{r}
+homerange$order <- as.factor(homerange$order)
 levels(homerange$order)
 ```
 
@@ -87,6 +88,7 @@ deer <- data.frame(mean_mass, log10_mass, family, genus, species)%>%
 deer
 ```
 
+
 ## Don't forget that you can use `select()` and `filter()`; you don't need to make a new data frame.
 ```{r}
 deer <- 
@@ -104,6 +106,7 @@ homerange %>%
   select(mean.hra.m2, species, taxon) %>%
   filter(taxon=="snakes")%>%
   arrange(mean.hra.m2)
+#using log10.hra would also get you this answer
 ```
 
 8. You suspect that homerange and mass are correlated in birds. We need a ratio that facilitates exploration of this prediction. First, build a new dataframe called `hra_ratio` that is limited to genus, species, mean.mass.g, log10.mass, log10.hra. Arrange it in ascending order by mean mass in grams.  
@@ -146,6 +149,12 @@ Ostrich<-
   mutate(hra.ostrich = log10.hra/log10.mass) %>%
   select(hra.ostrich)
 Ostrich
+```
+
+##Remember this information is already in hra.ration
+```{r}
+hra_ratio %>% 
+  filter(genus=="struthio" & species=="camelus")
 ```
 
 ## Push your final code to GitHub!
