@@ -1,0 +1,46 @@
+---
+title: "BIS 15L project"
+author: "Alejandra Ramirez"
+date: "2/27/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+readr::read_csv("C:/Users/aleram15/Documents/GitHub/BIS15W2020_ARamirez/Kaggledata.csv")
+```
+
+
+
+
+
+
+
+```{r}
+readr::read_csv("C:/Users/aleram15/Documents/sequences.csv")
+```
+
+
+
+```{r}
+getwd()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
