@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
-readr::read_csv("C:/Users/aleram15/Documents/GitHub/BIS15W2020_ARamirez/Kaggledata.csv")
+readr::read_csv("/Users/aleram15/Documents/GitHub/BIS15W2020_ARamirez/Project/Kaggledata.csv")
 ```
 
 
@@ -22,7 +22,7 @@ readr::read_csv("C:/Users/aleram15/Documents/GitHub/BIS15W2020_ARamirez/Kaggleda
 
 
 ```{r}
-readr::read_csv("C:/Users/aleram15/Documents/sequences.csv")
+readr::read_csv("/Users/aleram15/Documents/GitHub/BIS15W2020_ARamirez/Project/sequences.csv")
 ```
 
 

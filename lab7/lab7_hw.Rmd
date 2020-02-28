@@ -60,6 +60,7 @@ UC_admit%>%
   group_by(Campus)%>%
   count()
 ```
+
 ```{r}
 ui <- dashboardPage(
   dashboardHeader(title = "Plot UC Admissions App"),
