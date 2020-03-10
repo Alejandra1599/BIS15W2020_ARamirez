@@ -48,8 +48,8 @@ coronavirus <- corona[[1]]
 ```{r}
 length(coronavirus)
 table(coronavirus)
-
 ```
+
 ```{r}
 GC(coronavirus)
 ```
