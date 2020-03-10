@@ -61,6 +61,9 @@ UC_admit%>%
   count()
 ```
 
+
+##Note you've put in a slider for adjusting point size but your graph doesn't have points.
+##Also year is being treater as a numeric instead of a factor
 ```{r}
 ui <- dashboardPage(
   dashboardHeader(title = "Plot UC Admissions App"),
@@ -95,7 +98,8 @@ server <- function(input, output, session) {
 ```
   
 **3. Make alternate version of your app above by tracking enrollment at a campus over all of the represented years while allowing users to interact with campus, category, and ethnicity.**
-
+##This app should allow you to look at individual campuses
+##Also the code for the slider has been left in here as well.
 ```{r}
 ui <- dashboardPage(
   dashboardHeader(title = "Plot UC Admissions App Alternative"),
@@ -128,7 +132,9 @@ server <- function(input, output, session) {
   
   shinyApp(ui, server)
 ```
-```
+##There are no independent apps in the folder. Though the do run directly from the code.
+
+
 
 ## Push your final code to GitHub!
 
