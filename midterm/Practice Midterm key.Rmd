@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## `gapminder`
 For this assignment, we are going to use the dataset [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html). Gapminder includes information about economics, population, and life expectancy from countries all over the world. You will need to install it before use.
 ```{r}
-#install.packages("gapminder")
+install.packages("gapminder")
 ```
 
 ## Load the libraries
