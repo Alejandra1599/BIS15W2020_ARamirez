@@ -118,10 +118,11 @@ amniota %>%
   naniar::miss_var_summary(order=T)
 ```
 
-###they make sense since humans don't have eggs that can be measured
+###they make sense since humans (mammals) don't have eggs that can be measured
+##Note this means that the NA in this data could mean two different things- that data is missing OR that data is not applicaple
 
 **6. Which taxonomic classes are represented in the data? Summarize this in a chart then make a barplot that shows the proportion of observations in each taxonomic class.**
-
+##You can use count(class) instead of group_by and summarize and it will give you the counts of observations for each class as well in your table.
 ```{r}
 amniota%>%
   group_by(class)%>%
@@ -177,7 +178,7 @@ amniota%>%
 amphibio
 ```
 
-
+##You can also do this using the case_when() function
 ```{r}
 amphibio <-
   amphibio%>%
@@ -209,7 +210,7 @@ amphibio%>%
   geom_jitter()
 ```
 
-
+##To remove outliers you could either look at your scatter plot and look for values to filter by (eg Body_size_mm < 1000, Litter_size_min_n < 15000), or you could calculate quartile ranges and reduce outliers that way.
 
 
 ## Push your final code to GitHub!
