@@ -39,13 +39,12 @@ The questions below are open-ended and have many possible solutions. Your approa
 gapminder
 ```
 
-
-
 ```{r}
 glimpse(gapminder)
 anyNA(gapminder)
 ```
 
+##Better safe than sorry I suppose, but note that when you look at the data there does not appear to be NAs in any form, so some of this code probably isn't necessary.
 ```{r}
 gapminder%>%
   na_if(" ")%>%
@@ -55,7 +54,7 @@ gapminder%>%
 
 
 **2. Among the interesting variables in gapminder is life expectancy. How has global life expectancy changed between 1952 and 2007?**
-
+##Remember, it's always nice to generate a data table for graphs.
 ```{r}
 gapminder%>%
   group_by(year)%>%
@@ -69,7 +68,7 @@ gapminder%>%
 ###life expectancy has increased from about 50 to almost 70 years
 
 **3. How do the distributions of life expectancy compare for the years 1952 and 2007? _Challenge: Can you put both distributions on a single plot?_**
-
+##This totally works, but you can also use geom_density() which illustrates the differences in an interesting way.
 ```{r}
 gapminder%>%
   filter(year== 1952 | year== 2007)%>%
@@ -106,7 +105,7 @@ gapminder%>%
 
 **6. We are interested in the relationship between per capita GDP and life expectancy; i.e. does having more money help you live longer?**
 
-
+##geom_point() would probably show this relationship in a clearer way
 ```{r}
 gapminder%>%
   group_by(year, gdpPercap)%>%
@@ -121,7 +120,7 @@ gapminder%>%
 
 
 **7. There is extreme disparity in per capita GDP. Rescale the x axis to make this easier to interpret. How would you characterize the relationship?**
-
+##You could also use geom_smooth() to add a regression line and make the relationship even more apparent.
 ```{r}
 gapminder%>%
   group_by(year, gdpPercap)%>%
@@ -173,7 +172,10 @@ gapminder%>%
   theme(plot.title = element_text(size = 20, hjust = .5, face = "bold"))
 ```
 
-
+##It appears that something strange happened in your filtering in these two questions. I think because instead of filtering for those countries, you created new columns for each instance of each country. Try something like this-
+```{r}
+filter(country=="China" | country=="India" | country=="United States" | country=="Indonesia" | country=="Brazil")
+```
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences. 
